@@ -7,7 +7,23 @@ const path = require('path');
  * @returns {Configuration[]}
  */
 function mapCommon(options) {
-  return options.map(opt => ({ ...opt, mode: 'production' }));
+  return options.map(opt => ({
+    ...opt,
+    mode: 'production',
+    resolve: {
+      extensions: ['.js'],
+    },
+    module: {
+      rules: [
+        {
+          test: /.*\.js$/,
+          use: {
+            loader: 'babel-loader',
+          },
+        },
+      ],
+    },
+  }));
 }
 
 /** @type {Configuration} */
@@ -17,7 +33,7 @@ module.exports = mapCommon([
     output: {
       filename: 'ios-input-polyfill.js',
       path: path.resolve('./lib'),
-      libraryTarget: 'commonjs2',
+      libraryTarget: 'umd',
     },
   },
   {
@@ -25,7 +41,8 @@ module.exports = mapCommon([
     output: {
       filename: 'is.js',
       path: path.resolve('./lib'),
-      libraryTarget: 'commonjs',
+      library: 'WeHelper.is',
+      libraryTarget: 'umd',
     },
   },
   {
@@ -33,7 +50,8 @@ module.exports = mapCommon([
     output: {
       filename: 'index.js',
       path: path.resolve('./lib'),
-      libraryTarget: 'commonjs',
+      library: 'WeHelper',
+      libraryTarget: 'umd',
     },
   },
 ]);
