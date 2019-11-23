@@ -1,6 +1,6 @@
 {
   "name": "@wisetc/wechat-webpage-helper",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "微信内页面的工具方法",
   "main": "./lib/index.js",
   "files": [

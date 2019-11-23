@@ -29,3 +29,30 @@ pattern.test(window.navigator.appVersion) &&
 ```js
 require('@wisetc/wechat-webpage-helper/lib/ios-input-polyfill');
 ```
+
+## 多次调用触发包装
+
+利用 `charge` 来蓄积调用能量。下面的代码连续快速调用 5 次才打印当前的时间，调用间的延时默认为 500ms。
+
+```js
+import { charge } from '@wisetc/wechat-webpage-helper/lib/debugger';
+const print = () => {
+  console.log(Date.now());
+};
+const charged = charge(print, 5);
+
+// 连续调用
+charged();
+charged();
+charged();
+charged();
+charged();
+```
+
+定义 `charge`，
+
+```ts
+function charge(func: Function, maxTimes = 5, delay = 500): Function;
+```
+
+`charge` 方法的第三个参数为调用间的延时，第二个参数为触发设定函数的最小调用次数。

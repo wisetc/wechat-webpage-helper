@@ -46,6 +46,15 @@ module.exports = mapCommon([
     },
   },
   {
+    entry: './src/debugger.js',
+    output: {
+      filename: 'debugger.js',
+      path: path.resolve('./lib'),
+      library: 'WeHelper.debugger',
+      libraryTarget: 'umd',
+    },
+  },
+  {
     entry: './src/index.js',
     output: {
       filename: 'index.js',
