@@ -55,6 +55,15 @@ module.exports = mapCommon([
     },
   },
   {
+    entry: './src/qs.js',
+    output: {
+      filename: 'qs.js',
+      path: path.resolve('./lib'),
+      library: 'WeHelper.qs',
+      libraryTarget: 'umd',
+    },
+  },
+  {
     entry: './src/index.js',
     output: {
       filename: 'index.js',
