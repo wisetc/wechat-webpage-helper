@@ -56,3 +56,12 @@ function charge(func: Function, maxTimes = 5, delay = 500): Function;
 ```
 
 `charge` 方法的第三个参数为调用间的延时，第二个参数为触发设定函数的最小调用次数。
+
+## Qs
+
+qs 模块用来处理请求 Query 参数。
+
+涉及到的方法有:
+
+- getValue(href: string, key: string): string | undefined -> 用于从请求中获取参数的值
+- putQuery(href: string, pair: string): string -> 用于将键值对放入请求中
