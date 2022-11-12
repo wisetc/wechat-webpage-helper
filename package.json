@@ -35,6 +35,6 @@
     "babel-preset-stage-2": "6.24.1",
     "jest": "20.0.4",
     "webpack": "4.41.2",
-    "webpack-cli": "3.3.9"
+    "webpack-cli": "3.3.12"
   }
 }
